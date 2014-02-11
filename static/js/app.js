@@ -12,11 +12,18 @@ angular.module('loganApp', [
     $route
     .when('/', {
         templateUrl: '/static/templates/front.html',
-        controller: 'loganFrontCtrl'
+        controller: 'loganFrontCtrl',
+        action: 'front'
     })
-    .when('/resume.html', {
-        templateUrl: '/static/templates/resume.html',
-        controller: 'loganResumeCtrl'
+    .when('/code', {
+        templateUrl: '/static/templates/code.html',
+        controller: 'loganCodeCtrl',
+        action: 'code'
+    })
+    .when('/racing', {
+        templateUrl: '/static/templates/racing.html',
+        controller: 'loganRacingCtrl',
+        action: 'racing'
     })
     .otherwise({
         redirectTo: '/'

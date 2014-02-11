@@ -1,18 +1,16 @@
 .resume {
-    margin: 0 0 0 0;
-    padding: 1in 1in 1in 1in;
-    width: 8.5in;
+    width: 816px;
 
     h1, h2, h3, h4 {
         margin-top: 0px;
         margin-bottom: 0px;
     }
 
-    h2 { margin-bottom: 0.2in; margin-top: 0.6in; }
-    h3 { margin-top: 0.3in; }
+    h2 { margin-bottom: 20px; margin-top: 60px; }
+    h3 { margin-top: 30px; }
 
     .note {
-        font-size: 9pt;
+        font-size: 12px;
         font-style: italic;
         font-weight: normal !important;
         text-transform: none;
@@ -24,12 +22,12 @@
     }
 
     .col1 {
-        margin-right: 0.5in;
-        width: 2.25in;
+        margin-right: 48px;
+        width: 216px;
         a { font-weight: bold; }
     }
 
     .col2 {
-        width: 5.25in;
+        width: 504px;
     }
 }

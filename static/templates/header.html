@@ -1,2 +1,21 @@
 <div class="header">
+  <h1>Logan Hanks</h1>
+
+  <div class="nav">
+    <div class="item" ng-class="{active: isFront}">
+      <a href="/">about</a>
+      <span class="arrow"></span>
+    </div>
+    <div class="item" ng-class="{active: isCode}">
+      <a href="/code">open source</a>
+      <span class="arrow"></span>
+    </div>
+    <div class="item" ng-class="{active: isRacing}">
+      <a href="/racing">racing</a>
+      <span class="arrow"></span>
+    </div>
+    <div class="item">
+      <a href="/resume.html" ng-click="resume()">resume</a>
+    </div>
+  </div>
 </div>
