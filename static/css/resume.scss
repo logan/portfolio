@@ -1,0 +1,35 @@
+.resume {
+    margin: 0 0 0 0;
+    padding: 1in 1in 1in 1in;
+    width: 8.5in;
+
+    h1, h2, h3, h4 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    h2 { margin-bottom: 0.2in; margin-top: 0.6in; }
+    h3 { margin-top: 0.3in; }
+
+    .note {
+        font-size: 9pt;
+        font-style: italic;
+        font-weight: normal !important;
+        text-transform: none;
+    }
+
+    .col1, .col2 {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .col1 {
+        margin-right: 0.5in;
+        width: 2.25in;
+        a { font-weight: bold; }
+    }
+
+    .col2 {
+        width: 5.25in;
+    }
+}

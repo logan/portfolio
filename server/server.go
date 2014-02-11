@@ -25,7 +25,7 @@ func NewServer(config ServerConfig) *Server {
     fileServer := http.FileServer(http.Dir(config.StaticPath))
     return &Server{
         ServerConfig: config,
-        Sass: SassFile(config.StaticPath + "/css/style.sass"),
+        Sass: SassFile(config.StaticPath + "/css/style.scss"),
         StaticHandler: http.StripPrefix("/static", fileServer),
     }
 }
@@ -40,7 +40,10 @@ func (server *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     // Everything under static, except for /static/css/..., is fair game.
     // A request for /static/css/style.css will yield the sass compilation of
     // static/css/style.sass.
-    if strings.HasPrefix(r.URL.Path, "/static/css") {
+
+    if r.URL.Path == "/resume.html" {
+        http.ServeFile(w, r, server.ServerConfig.StaticPath + "/templates/resume.html")
+    } else if strings.HasPrefix(r.URL.Path, "/static/css") {
         if r.URL.Path == "/static/css/style.css" {
             server.Sass.ServeHTTP(w, r)
         } else {

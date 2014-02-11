@@ -1,6 +1,7 @@
 $std-font-family: 'Helvetica', sans-serif;
 $std-font-size: 10pt;
 $hdr-font-family: 'Futura', 'Futura Medium', 'Didact Gothic', sans-serif;
+$hdr-font-size: 11pt;
 
 @mixin transform($spec) {
     -webkit-transform: $spec;
@@ -25,6 +26,7 @@ a {
 
 h1, h2, h3, h4, h5 {
     font-family: $hdr-font-family;
+    font-size: $hdr-font-size;
     font-weight: bold;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -36,3 +38,8 @@ h1 {
     @include transform(scale(1, 1.5));
 }
 
+@media print {
+    .header, .footer { display: none; }
+}
+
+@import 'resume';
