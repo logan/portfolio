@@ -1,80 +1,84 @@
 <div class="code">
 
-<h2>tallier</h2>
+  <div class="project">
+    <h2>tallier</h2>
 
-<p>
-While working at reddit in 2012, I set up an instance of etsy's
-<a href="https://github.com/etsy/statds">statsd</a> service, to collect live
-stats from all our app servers. Unfortunately, as a node.js service, statsd
-couldn't make good use of our multi-core CPU. We quickly topped out the amount
-of data we could collect.
-</p>
+    source: <a href="https://github.com/reddit/tallier">github.com/reddit/tallier</a>
 
-<p>
-To cope with this, I wrote a new implementation in Python, so I could
-spread the work across the entire CPU (with the multiprocessing module). We were
-able to collect roughly three times as much data as before.
-I called this rewrite "tallier" (because it buffers up tallies of thousands of
-keys before flushing them to graphite).
-This served us well for about a year, until once again we started running into
-the limit of our processing power. Rather than spend more money for beefier EC2
-instances, I decided to try writing it in Go.
-</p>
+    <p>
+    While working at reddit in 2012, I set up an instance of etsy's
+    <a href="https://github.com/etsy/statds">statsd</a> service, to collect live
+    stats from all our app servers. Unfortunately, as a node.js service, statsd
+    couldn't make good use of our multi-core CPU. We quickly topped out the
+    amount of data we could collect.
+    <p>
+    To cope with this, I wrote a new implementation in Python, so I could
+    spread the work across the entire CPU (with the multiprocessing module). We
+    were able to collect roughly three times as much data as before.
+    I called this rewrite "tallier" (because it buffers up tallies of thousands
+    of keys before flushing them to graphite). This served us well for about a
+    year, until once again we started running into the limit of our processing
+    power. Rather than spend more money for beefier EC2 instances, I decided to
+    try writing it in Go.
+    <p>
+    This was a fun and appropriate exercise for learning Go. It didn't take long
+    before I had a complete replacement that was multiple times faster than the
+    Python implementation. With some optimizations (and, eventually, the release
+    of Go 1.2), we were able to collect all of the data we wanted with plenty of
+    capacity to spare.
 
-<p>
-This was a fun and appropriate exercise for learning Go. It didn't take long
-before I had a complete replacement that was multiple times faster than the
-Python implementation. With some optimizations (and, eventually, the release of
-Go 1.2), we were able to collect all of the data we wanted with plenty of
-capacity to spare.
-</p>
+  </div>
 
+  <div class="project">
+    <h2>ibis</h2>
 
-<h2>ibis</h2>
+    source: <a href="https://github.com/logan/ibis">github.com/logan/ibis</a>
 
-source: <a href="https://github.com/logan/ibis">github.com/logan/ibis</a><br>
+    <p>
+    In early 2014 I wanted to explore building highly scalable web applications
+    with Go and Cassandra. To help manage mapping Go data structures to column
+    families, I developed ibis.
+    <p>
+    This is very much a work in progress, but at the moment ibis provides some
+    higher-level helper routines for working with gocql, as well as some
+    reflection automagic to reduce boilerplate.
 
-<p>
-In early 2014 I wanted to explore building highly scalable web applications with
-Go and Cassandra. To help manage mapping Go data structures to column families,
-I developed ibis.
-</p>
+  </div>
 
-<p>
-This is very much a work in progress, but at the moment ibis provides some
-higher-level helper routines for working with gocql, as well as some reflection
-automagic to reduce boilerplate.
-</p>
+  <div class="project">
+    <h2>sandblaster</h2>
 
-<h2>sandblaster</h2>
+    source: <a href="https://github.com/reddit/tallier">github.com/reddit/tallier</a>
 
-source: <a href="https://github.com/reddit/tallier">github.com/reddit/tallier</a><br>
+    <p>
+    When I got my first Android phone in late 2008, I wanted to take a stab at
+    mobile development. I had recently enjoyed some falling sand toys on the
+    web, so I decided to make one for Android.
+    </p>
 
-<p>
-When I got my first Android phone in late 2008, I wanted to take a stab at
-mobile development. I had recently enjoyed some falling sand toys on the web, so
-I decided to make one for Android.
-</p>
+    <iframe width="320" height="180" src="//www.youtube.com/embed/95ZZH3VM31I" frameborder="0" allowfullscreen>
+    </iframe>
+  </div>
 
-<iframe width="320" height="180" src="//www.youtube.com/embed/95ZZH3VM31I" frameborder="0" allowfullscreen>
-</iframe>
+  <div class="project">
+    <h2>ircquotes</h2>
 
-<h2>ircquotes</h2>
+    site: <a href="http://iq.appspot.com">iq.appspot.com</a><br>
+    source: <a href="https://github.com/logan/iq">github.com/logan/iq</a>
 
-site: <a href="http://iq.appspot.com">iq.appspot.com</a><br>
-source: <a href="https://github.com/logan/iq">github.com/logan/iq</a><br>
+    <p>
+    In 2002 my friends and I were unsatisfied with the state of the art in
+    posting funny quotes from IRC. Existing sites had unengaged moderators as
+    gatekeepers, who didn't seem to have much effect on quality. I decided to
+    make my own, replacing moderators and ranking with a pretty effective
+    recommender system.
+    </p>
 
-<p>
-In 2002 my friends and I were unsatisfied with the state of the art in posting
-funny quotes from IRC. Existing sites had unengaged moderators as gatekeepers,
-who didn't seem to have much effect on quality. I decided to make my own,
-replacing moderators and ranking with a pretty effective recommender system.
-</p>
-
-<p>
-That original implementation is lost in the mists of time, but in 2008 I
-reimplemented it on Google App Engine. All the data has survived, but I never
-migrated the recommender over.
-</p>
+    <p>
+    That original implementation is lost in the mists of time, but in 2008 I
+    reimplemented it on Google App Engine. All the data has survived, but I
+    never migrated the recommender over.
+    </p>
+  </div>
 
 </div>

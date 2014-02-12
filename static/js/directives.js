@@ -28,3 +28,29 @@ angular.module('loganDirectives', [])
             templateUrl: '/static/templates/footer.html'
         }
     })
+
+.directive('loganFixedAfterScroll',
+    function($window) {
+        return {
+            restrict: 'A',
+            link: function(scope, elems, attrs) {
+                var windowElem = angular.element($window)
+                scope.fixedAt = null
+                windowElem.bind("scroll", function() {
+                    var spos = $window.scrollY
+                    if (scope.fixedAt == null) {
+                        var pos = elems[0].getBoundingClientRect()
+                        if (pos.top <= 0) {
+                            scope.fixedAt = spos
+                            angular.element(elems).addClass("fixed")
+                        }
+                    } else {
+                        if (spos < scope.fixedAt) {
+                            scope.fixedAt = null
+                            angular.element(elems).removeClass("fixed")
+                        }
+                    }
+                })
+            }
+        }
+    })

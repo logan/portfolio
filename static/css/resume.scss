@@ -1,18 +1,24 @@
+@media print {
+    .resume {
+        .note { font-size: 9pt; }
+    }
+}
+
 .resume {
-    width: 816px;
+    width: 55em;
 
     a { font-weight: normal; }
 
     h1, h2, h3, h4 {
-        margin-top: 0px;
-        margin-bottom: 0px;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
-    h2 { margin-bottom: 20px; margin-top: 60px; }
-    h3 { margin-top: 30px; }
+    h2 { margin-bottom: 1.3em; margin-top: 4em; }
+    h3 { margin-top: 2em; }
 
     .note {
-        font-size: 12px;
+        font-size: 0.9em;
         font-style: italic;
         font-weight: normal !important;
         text-transform: none;
@@ -24,12 +30,12 @@
     }
 
     .col1 {
-        margin-right: 48px;
-        width: 216px;
+        margin-right: 4em;
+        width: 16.5em;
         a { font-weight: bold; }
     }
 
     .col2 {
-        width: 504px;
+        width: 32em;
     }
 }
