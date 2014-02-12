@@ -4,10 +4,13 @@
       title="tallier"
       summary="realtime stats collection"
       src="https://github.com/reddit/tallier">
-    <img src="/static/img/tallier.png" width="278" height="151">
+    <img src="/static/img/tallier.jpg" class="inline">
 <p>
 While working at reddit in 2012, I set up an instance of etsy's statsd service, to collect live stats from all our app servers. This service aggregates stats on a periodic basis and stores them in graphite. Unfortunately, as a node.js service, statsd couldn't make good use of our multi-core CPU. It wasn't long before we topped out the amount of data we could collect.
 </p>
+    <!--
+    <img src="/static/img/tallier.png" width="278" height="151">
+    -->
 <p>
 I then wrote a new implementation in Python. Python was a more familiar language for me, and I could spread the work across the entire CPU with the multiprocessing module. I called this rewrite "tallier", and it was able to collect roughly three times as much data as before.
 </p>
@@ -20,10 +23,10 @@ This served us well for about a year, until once again we started running into t
     title="ibis"
     summary="cassandra/cql helper for go"
     src="https://github.com/logan/ibis">
-    <img src="/static/img/ibis.png" width="430" height="135">
 <p>
 In early 2014 I wanted to explore building large-scale web applications with Go and Cassandra. To help manage mapping Go data structures to column families, I developed ibis.
 </p>
+    <img src="/static/img/ibis.png" width="430" height="135">
 <p>
 This is an early-stage work in progress. So far ibis provides  higher-level helper routines for working with gocql and reflection automagic to reduce boilerplate.
 </p>
@@ -33,12 +36,15 @@ This is an early-stage work in progress. So far ibis provides  higher-level help
       title="sandblaster"
       summary="falling sand toy for android"
       src="https://github.com/logan/sandblaster">
-    <img src="/static/img/sandblaster.png" width="144" height="272">
+    <img src="/static/img/sandblaster.png" width="144" height="272" class="inline">
     <p>
     When I got my first Android phone in late 2008, I wanted to take a stab at
     mobile development. I had recently enjoyed some falling sand toys on the
     web, so I decided to make one for Android.
     </p>
+    <!--
+    <img src="/static/img/sandblaster.png" width="144" height="272">
+    -->
   </logan-project>
 
   <logan-project
@@ -46,10 +52,13 @@ This is an early-stage work in progress. So far ibis provides  higher-level help
     summary="online quote database"
     src="https://github.com/logan/iq"
     site="http://iq.appspot.com">
-    <img src="/static/img/iq.png" width="431" height="81">
+    <img src="/static/img/iq-logo.png" class="inline">
 <p>
 In 2002 my friends and I were unhappy with the state of the art in posting funny quotes from IRC. Existing sites had moderators as gatekeepers. They didn't seem to have much effect on quality, and they were never around to approve submissions anyway. I decided to make my own, replacing moderators and ranking with a pretty effective recommender system.
 </p>
+    <!--
+    <img src="/static/img/iq.png" width="431" height="81">
+    -->
 <p>
 That original implementation is no longer live, but in 2008 I reimplemented it on Google App Engine. All the data has survived, although the personalized ranking features no longer exist.
 </p>
