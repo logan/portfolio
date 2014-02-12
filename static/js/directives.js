@@ -54,3 +54,22 @@ angular.module('loganDirectives', [])
             }
         }
     })
+
+.directive('loganProject',
+    function() {
+        return {
+            restrict: 'E',
+            scope: {
+                'title': '@',
+                'src': '@',
+                'summary': '@',
+                'site': '@',
+            },
+            transclude: true,
+            templateUrl: '/static/templates/project.html',
+            controller: function($scope) {
+                // TODO: strip https?:// prefix
+                $scope.srcText = $scope.src
+            }
+        }
+    })

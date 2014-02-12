@@ -1,5 +1,6 @@
 $std-font-family: 'Helvetica', sans-serif;
-$hdr-font-family: 'Futura', 'Futura Medium', 'Didact Gothic', sans-serif;
+//$hdr-font-family: 'Futura', 'Futura Medium', 'Didact Gothic', sans-serif;
+$hdr-font-family: 'Didact Gothic', sans-serif;
 
 @mixin transform($spec) {
     -webkit-transform: $spec;
@@ -51,7 +52,7 @@ h1, h2, h3, h4, h5 {
 h1 {
     font-size: 1.85em;
     letter-spacing: 0.25em;
-    @include transform(scale(1, 1.5));
+    @include transform(scale(1, 1));
 }
 
 h2 {
@@ -108,9 +109,31 @@ h2 {
 
 .code {
     .project {
+        display: inline-block;
+        position: relative;
         padding: 1em 1em 1em 1em;
-        h2 {
-            border-bottom: solid 1px black;
+        vertical-align: top;
+
+        h2 { border-bottom: solid 1px black; }
+        .link {
+            font-size: 0.8em;
+        }
+
+        .summary {
+            position: absolute;
+            top: 1.5em;
+            right: 1.11em;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        img { padding-top: 1em; }
+        img, iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }
+
+@media (min-width: 72em) { .project { width: 46%; } }
