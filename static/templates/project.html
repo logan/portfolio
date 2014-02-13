@@ -1,11 +1,11 @@
 <div class="project">
   <h2>{{title}}</h2>
   <span class="summary">{{summary}}</span>
+  <div class="description" ng-transclude></div>
   <div class="link" ng-show="site">
     site: <a href="{{site}}">{{site}}</a>
   </div>
   <div class="link" ng-show="src">
     code: <a href="{{src}}">{{srcText}}</a>
   </div>
-  <div class="description" ng-transclude></div>
 </div>

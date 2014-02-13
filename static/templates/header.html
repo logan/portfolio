@@ -1,18 +1,10 @@
 <div class="header">
-  <h1>Logan Hanks</h1>
+  <img class="monogram" src="/static/img/lh.png">
+  <div class="title-underline" logan-fixed-after-scroll></div>
 
   <div class="nav" logan-fixed-after-scroll>
-    <div class="item" ng-class="{active: isFront}">
-      <a href="/">about</a>
-      <span class="arrow"></span>
-    </div>
-    <div class="item" ng-class="{active: isCode}">
-      <a href="/code">open source</a>
-      <span class="arrow"></span>
-    </div>
-    <div class="item" ng-class="{active: isRacing}">
-      <a href="/racing">racing</a>
-      <span class="arrow"></span>
-    </div>
+    <a class="item" ng-class="{active: isFront}" href="/">about</a>
+    <a class="item" ng-class="{active: isCode}" href="/code">open source</a>
+    <a class="item" ng-class="{active: isRacing}" href="/racing">racing</a>
   </div>
 </div>

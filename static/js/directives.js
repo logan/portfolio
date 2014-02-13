@@ -29,14 +29,24 @@ angular.module('loganDirectives', [])
     })
 
 .directive('loganFixedAfterScroll',
-    function($window) {
+    function($window, $rootScope) {
         return {
+            scope: {},
             restrict: 'A',
             link: function(scope, elems, attrs) {
-                var windowElem = angular.element($window)
+                console.log("fixing", elems)
+                if ($rootScope.loganScrollWatchers === undefined) {
+                    var windowElem = angular.element($window)
+                    $rootScope.loganScrollWatchers = []
+                    windowElem.bind("scroll", function() {
+                        for (var i = 0; i < $rootScope.loganScrollWatchers.length; i++) {
+                            $rootScope.loganScrollWatchers[i]($window.scrollY)
+                        }
+                    })
+                }
+
                 scope.fixedAt = null
-                windowElem.bind("scroll", function() {
-                    var spos = $window.scrollY
+                $rootScope.loganScrollWatchers.push(function(spos) {
                     if (scope.fixedAt == null) {
                         var pos = elems[0].getBoundingClientRect()
                         if (pos.top <= 0) {

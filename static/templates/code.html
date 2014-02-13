@@ -1,10 +1,29 @@
 <div class="code">
 
+  <p>
+  I prefer to make and deal with open source. Here are a few solo projects I've
+  worked on that have source code available.
+  </p>
+
+  <logan-project
+    title="ibis"
+    summary="cassandra/cql helper for go"
+    src="https://github.com/logan/ibis">
+    <img src="/static/img/ibis-logo.png" width="100" height="90" class="inline">
+<p>
+In early 2014 I wanted to explore building large-scale web applications with Go and Cassandra. To help manage mapping Go data structures to column families, I developed ibis.
+</p>
+<p>
+This is an early-stage work in progress. So far ibis provides  higher-level helper routines for working with gocql and reflection automagic to reduce boilerplate.
+</p>
+    <img src="/static/img/ibis.png" width="430" height="135">
+  </logan-project>
+
   <logan-project
       title="tallier"
       summary="realtime stats collection"
       src="https://github.com/reddit/tallier">
-    <img src="/static/img/tallier.jpg" class="inline">
+    <img src="/static/img/tallier-logo.png" width="100" height="100" class="inline">
 <p>
 While working at reddit in 2012, I set up an instance of etsy's statsd service, to collect live stats from all our app servers. This service aggregates stats on a periodic basis and stores them in graphite. Unfortunately, as a node.js service, statsd couldn't make good use of our multi-core CPU. It wasn't long before we topped out the amount of data we could collect.
 </p>
@@ -20,23 +39,10 @@ This served us well for about a year, until once again we started running into t
   </logan-project>
 
   <logan-project
-    title="ibis"
-    summary="cassandra/cql helper for go"
-    src="https://github.com/logan/ibis">
-<p>
-In early 2014 I wanted to explore building large-scale web applications with Go and Cassandra. To help manage mapping Go data structures to column families, I developed ibis.
-</p>
-    <img src="/static/img/ibis.png" width="430" height="135">
-<p>
-This is an early-stage work in progress. So far ibis provides  higher-level helper routines for working with gocql and reflection automagic to reduce boilerplate.
-</p>
-  </logan-project>
-
-  <logan-project
       title="sandblaster"
       summary="falling sand toy for android"
       src="https://github.com/logan/sandblaster">
-    <img src="/static/img/sandblaster.png" width="144" height="272" class="inline">
+    <img src="/static/img/sandblaster-logo.png" width="100" height="100" class="inline">
     <p>
     When I got my first Android phone in late 2008, I wanted to take a stab at
     mobile development. I had recently enjoyed some falling sand toys on the

@@ -28,7 +28,8 @@ $hdr-font-family: 'Didact Gothic', sans-serif;
 
 body {
     margin: 0 0 0 0;
-    padding: 2em 2em 2em 2em;
+    padding: 6px 42px 2em;
+    overflow-x: hidden;
 }
 
 a {
@@ -63,55 +64,118 @@ h2 {
     display: inline-block;
 }
 
-.nav {
-    position: absolute;
-    top: 6em;
-    width: 13.5em;
+.monogram {
+    //@include transform(rotate(90deg));
+}
 
-    &.fixed {
+.loganhanks { display: none; }
+
+@media (min-width: 42em) {
+    .monogram {
+        display: inline;
         position: fixed;
-        top: 0;
+        top: 4px;
+        left: 4px;
+        width: 30px;
+        height: 96px;
     }
 
-    .item {
-        position: relative;
-        overflow: hidden;
+    .loganhanks {
+        display: inline;
+        height: 96px;
+        font-family: 'Droid Serif', serif;
+        font-size: 60px;
+        line-height: 48px;
+    }
+
+    .title-underline {
+        height: 24px;
+        margin-left: 4px;
+        width: 15em;
+        border-bottom: solid 1px black;
+        background: white;
+        z-index: 999;
+
+        &.fixed {
+            position: fixed;
+            top: 0;
+        }
+    }
+
+    .nav {
+        position: absolute;
+        top: 0;
+        left: 15em;
+        right: -2em;
+        background: white;
+        z-index: 999;
+        border-bottom: 1px solid black;
+
+        &.fixed {
+            position: fixed;
+            top: 0;
+        }
 
         a {
-            display: block;
+            display: inline-block;
+            float: left;
             font-family: $hdr-font-family;
-            font-size: 1.15em;
+            font-size: 18px;
             font-weight: bold;
             letter-spacing: 0.1em;
-            padding: 0.75em 0 0.75em 0.75em;
+            text-align: center;
             text-transform: uppercase;
-            width: 9.5em;
+            vertical-align: middle;
+            width: 33%;
             &:hover {
                 text-decoration: none;
             }
-        }
-        &.active {
-            a {
+            &.active {
                 background: black;
                 color: white;
             }
         }
     }
+
+    .content {
+        display: inline-block;
+        position: absolute;
+        top: 1em;
+        left: 30px;
+        padding-left: 1em;
+        padding-right: 1em;
+        vertical-align: top;
+    }
 }
 
-.content {
-    display: inline-block;
-    position: absolute;
-    top: 6em;
-    left: 16em;
-    vertical-align: top;
+@media (min-width: 50em) {
+    .title-underline { display: none; }
+    .nav {
+        top: 1em; 
+        left: inherit;
+        right: inherit;
+        width: 13.5em;
+        padding-left: 0;
+        border-bottom: none;
+        a {
+            display: block;
+            padding-left: 1em;
+            text-align: left;
+            width: 9.5em;
+        }
+    }
+
+    .content {
+        left: 16em;
+    }
 }
 
 .code {
     .project {
         display: inline-block;
+        overflow-x: hidden;
         position: relative;
-        padding: 1em 1em 1em 1em;
+        padding: 1em 1em 1em 0;
         vertical-align: top;
 
         h2 { border-bottom: solid 1px black; }
@@ -122,12 +186,12 @@ h2 {
         .summary {
             position: absolute;
             top: 1.5em;
-            right: 1.11em;
+            right: 1em;
             font-size: 0.9em;
             font-style: italic;
         }
 
-        img { padding-top: 1em; }
+        img { padding: 1em 0 1em 0; }
         img.inline {
             padding: 0 0 0 0;
             margin-right: 1em;
@@ -138,6 +202,10 @@ h2 {
             display: block;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .link {
+            clear: left;
         }
     }
 }
