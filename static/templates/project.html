@@ -1,19 +1,11 @@
 <div class="project">
-  <a ng-show="collapsed" href="/code/{{title}}">
-    <img class="icon" src="/static/img/{{icon}}">
-    <span class="title">{{title}}</span>
-    <span class="summary">{{title}}: {{summary}}</span>
-  </a>
-
-  <div ng-show="!collapsed">
-    <a name="{{title}}"></a>
-    <h2>{{title}}</h2>
-    <span class="summary">{{summary}}</span>
-    <a class="link" ng-show="src" href="http://{{src}}">{{src}}</a>
-    <img class="icon" src="/static/img/{{icon}}">
-    <div class="description" ng-transclude>
-    </div>
-    <ng-include src="'/static/templates/projects/' + title + '.html'">
-    </ng-include>
+  <a name="{{title}}"></a>
+  <h2>{{title}}</h2>
+  <span class="summary">{{summary}}</span>
+  <a class="link" ng-show="src" href="http://{{src}}">{{src}}</a>
+  <img class="icon" src="/static/img/{{icon}}">
+  <div class="description" ng-transclude>
   </div>
+  <ng-include src="'/static/templates/projects/' + title + '.html'">
+  </ng-include>
 </div>

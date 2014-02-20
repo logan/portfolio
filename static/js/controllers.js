@@ -19,14 +19,7 @@ angular.module('loganControllers', [])
     })
 
 .controller('loganCodeCtrl',
-    function($scope, $routeParams, loganProjects) {
+    function($scope, $anchorScroll, loganProjects) {
         $scope.projects = loganProjects
-        /*
-        for (var i = 0; i < loganProjects.length; i++) {
-            var proj = loganProjects[i]
-            if (proj.title == $routeParams.project) {
-                // TODO: scroll to this project
-            }
-        }
-        */
+        $anchorScroll()
     })

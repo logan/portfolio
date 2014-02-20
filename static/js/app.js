@@ -20,11 +20,6 @@ angular.module('loganApp', [
         controller: 'loganCodeCtrl',
         action: 'code'
     })
-    .when('/code/:project', {
-        templateUrl: '/static/templates/code.html',
-        controller: 'loganCodeCtrl',
-        action: 'code'
-    })
     .when('/racing', {
         templateUrl: '/static/templates/racing.html',
         controller: 'loganRacingCtrl',
