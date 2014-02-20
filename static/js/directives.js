@@ -82,7 +82,7 @@ angular.module('loganDirectives', [])
                 var proj = $scope.project
 
                 $scope.title = proj.title
-                $scope.icon = proj.title + "-logo.png"
+                $scope.icon = proj.title + ".svg"
                 $scope.summary = proj.summary
                 $scope.src = proj.src
                 $scope.site = proj.site
