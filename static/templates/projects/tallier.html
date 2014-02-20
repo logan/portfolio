@@ -1,0 +1,11 @@
+<div class="description">
+  <p>
+    While working at reddit in 2012, I set up an instance of etsy's statsd service, to collect live stats from all our app servers. This service aggregates stats on a periodic basis and stores them in graphite. Unfortunately, as a node.js service, statsd couldn't make good use of our multi-core CPU. It wasn't long before we topped out the amount of data we could collect.
+  </p>
+  <p>
+    I then wrote a new implementation in Python. Python was a more familiar language for me, and I could spread the work across the entire CPU with the multiprocessing module. I called this rewrite "tallier", and it was able to collect roughly three times as much data as before.
+  </p>
+  <p>
+    This served us well for about a year, until once again we started running into the limit of our processing power. Rather than spend more money for beefier EC2 instances, I decided to try writing it in Go. This was a fun and appropriate exercise for learning Go. It didn't take long before I had a complete replacement that was yet again several times faster. With some optimizations and the release of Go 1.2, we were able to collect all the data we wanted with plenty of capacity to spare.
+  </p>
+</div>

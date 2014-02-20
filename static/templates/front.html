@@ -1,9 +1,18 @@
 <div class="front">
-  <div class="about">
+  <div class="feature bio">
     <p>
       I am a programmer living in San Francisco with my partner,
       <a href="http://www.sarahhobstetter.com/">Sarah Hobsetter</a>,
       and my dog, <a href="http://reddit.com/r/ezzie">Ezzie</a>.
     </p>
+  </div>
+
+  <div class="feature code">
+    <logan-project ng-repeat="project in projects" project="project" collapsed="true">
+    </logan-project>
+  </div>
+
+  <div class="feature racing">
+    I like to race!
   </div>
 </div>

@@ -1,7 +1,7 @@
 angular.module('loganDirectives', [])
 
 .directive('loganHeader',
-    function($rootScope, $route) {
+    function($rootScope, $route, $routeParams, loganProjects) {
         return {
             restrict: 'E',
             replace: true,
@@ -13,6 +13,11 @@ angular.module('loganDirectives', [])
                     $scope.isFront = (section == "/static/templates/front.html")
                     $scope.isCode = (section == "/static/templates/code.html")
                     $scope.isRacing = (section == "/static/templates/racing.html")
+                    for (var i = 0; i < loganProjects.length; i++) {
+                        var pName = loganProjects[i].title
+                        pName = pName[0].toUpperCase() + pName.slice(1)
+                        $scope['isCode' + pName] = loganProjects[i].title == $routeParams.project
+                    }
                 })
             }
         }
@@ -34,7 +39,6 @@ angular.module('loganDirectives', [])
             scope: {},
             restrict: 'A',
             link: function(scope, elems, attrs) {
-                console.log("fixing", elems)
                 if ($rootScope.loganScrollWatchers === undefined) {
                     var windowElem = angular.element($window)
                     $rootScope.loganScrollWatchers = []
@@ -65,20 +69,30 @@ angular.module('loganDirectives', [])
     })
 
 .directive('loganProject',
-    function() {
+    function($location) {
         return {
             restrict: 'E',
             scope: {
-                'title': '@',
-                'src': '@',
-                'summary': '@',
-                'site': '@',
+                'project': '=',
+                'collapsed': '=',
             },
             transclude: true,
             templateUrl: '/static/templates/project.html',
             controller: function($scope) {
-                // TODO: strip https?:// prefix
-                $scope.srcText = $scope.src
+                var proj = $scope.project
+
+                $scope.title = proj.title
+                $scope.icon = proj.title + "-logo.png"
+                $scope.summary = proj.summary
+                $scope.src = proj.src
+                $scope.site = proj.site
+
+                $scope.load = function() {
+                    if (!$scope.collapsed) {
+                        return
+                    }
+                    $location.path('/code/' + $scope.title)
+                }
             }
         }
     })

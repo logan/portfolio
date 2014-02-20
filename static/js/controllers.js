@@ -1,12 +1,13 @@
 angular.module('loganControllers', [])
 
 .controller('loganFrontCtrl',
-    function($scope, $window) {
-        $scope.resume = function() { $window.location.href = "/resume.html" }
-    })
+    function($scope, $window, $templateCache, loganProjects) {
+        // TODO: remove
+        $templateCache.removeAll()
 
-.controller('loganCodeCtrl',
-    function($scope) {
+        $scope.resume = function() { $window.location.href = "/resume.html" }
+
+        $scope.projects = loganProjects
     })
 
 .controller('loganRacingCtrl',
@@ -15,4 +16,17 @@ angular.module('loganControllers', [])
 
 .controller('loganResumeCtrl',
     function($scope) {
+    })
+
+.controller('loganCodeCtrl',
+    function($scope, $routeParams, loganProjects) {
+        $scope.projects = loganProjects
+        /*
+        for (var i = 0; i < loganProjects.length; i++) {
+            var proj = loganProjects[i]
+            if (proj.title == $routeParams.project) {
+                // TODO: scroll to this project
+            }
+        }
+        */
     })
