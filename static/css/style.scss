@@ -264,6 +264,13 @@ h2 {
     }
 }
 
+.more {
+    display: block;
+    text-align: right;
+
+    &:hover { text-decoration: none; }
+}
+
 .project {
     margin-bottom: 2em;
     position: relative;
