@@ -1,0 +1,5 @@
+<div ng-class="{'carousel': true, 'clickable': !!href}">
+  <div class="gallery" ng-click="click()" ng-transclude></div>
+  <div class="left" ng-show="leftAvailable" ng-click="left()">&lt;</div>
+  <div class="right" ng-show="rightAvailable" ng-click="right()">&gt;</div>
+</div>

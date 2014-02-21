@@ -368,3 +368,25 @@ h2 {
 
     }
 }
+
+.carousel {
+    overflow: hidden;
+
+    &.clickable { cursor: pointer; }
+
+    .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include transition(left 1s ease-in-out);
+
+        &.hidden {
+            left: 100%;
+            opacity: 0;
+        }
+
+        &.hidden-transit {
+            left: -100%;
+        }
+    }
+}

@@ -108,12 +108,92 @@ angular.module('loganDirectives', [])
             templateUrl: '/static/templates/image.html',
             controller: function($scope) {
                 $scope.loaded = false
-                var img = new Image()
-                // img.src = $scope.src
-                setTimeout(function() { img.src=$scope.src }, 2000)
-                img.onload = function() {
-                    $scope.loaded = true
-                    $scope.$apply()
+                $scope.loading = false
+                $scope.fetch = function() {
+                    $scope.loading = true
+                    var img = new Image()
+                    img.src = $scope.src
+                    img.onload = function() {
+                        $scope.loaded = true
+                        $scope.loading = false
+                        $scope.$apply()
+                    }
+                }
+            }
+        }
+    })
+
+.directive('loganCarousel',
+    function($window) {
+        return {
+            replace: true,
+            restrict: 'E',
+            scope: {
+                autocycle: '=',
+                href: '@',
+            },
+            transclude: true,
+            templateUrl: '/static/templates/carousel.html',
+            link: function(scope, elems, attr) {
+                var elem = elems[0]
+                elem.style.position = 'relative'
+                var width = elem.style.offsetWidth
+
+                var divs = elems.find('div')
+                var images = []
+                var scopes = []
+                for (var i = 0; i < divs.length; i++) {
+                    var e = angular.element(divs[i])
+                    if (e.hasClass('image')) {
+                        images.push(divs[i])
+                        var img = e.find('img')
+                        scopes.push(img.scope())
+                    }
+                }
+
+                // start fetching the first image
+                scopes[0].fetch()
+
+                for (var i = 0; i < images.length; i++) {
+                    angular.element(images[i]).addClass('hidden')
+                }
+
+                var current = -1
+                function cycleTo(idx) {
+                    angular.element(images[idx]).removeClass('hidden')
+                    if (current >= 0) {
+                        var e = angular.element(images[current])
+                        e.addClass('hidden-transit')
+                        $window.setTimeout(function() {
+                                e.addClass('hidden')
+                                e.removeClass('hidden-transit')
+                            }, 1000)
+                    }
+                    current = idx
+                }
+
+                function autocycle() {
+                    var idx = current + 1
+                    if (idx >= images.length) {
+                        idx = 0
+                    }
+                    // TODO: wait for image to be loaded
+                    cycleTo(idx)
+                    // TODO: make delay configurable
+                    $window.setTimeout(autocycle, 5000)
+
+                    var next = (idx + 1) % images.length
+                    if (!scopes[next].loaded && !scopes[next].loading) {
+                        scopes[next].fetch()
+                    }
+                }
+                
+                autocycle()
+
+                scope.click = function() {
+                    if (scope.href) {
+                        $window.location.href = scope.href
+                    }
                 }
             }
         }
