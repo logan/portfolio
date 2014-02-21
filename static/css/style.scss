@@ -198,15 +198,21 @@ h2 {
 .content {
     position: absolute;
     top: 2em;
-    left: 2em;
-    margin-right: 2em;
+    left: 5%;
+    margin-right: 5%;
+    width: 90%;
 
     @media (min-width: $sidenav-breakpoint) {
         top: 5em;
         left: 30%;
+        width: 67%;
     }
 
-    @media (min-width: $wide-breakpoint) { left: 15%; }
+    @media (min-width: $wide-breakpoint) {
+        left: 15%;
+        margin-right: 2%;
+        width: 83%;
+    }
 }
 
 .front {
@@ -232,6 +238,15 @@ h2 {
         }
 
         h2 { border-bottom: solid 1px black; }
+
+        .highlight {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1em;
+            max-width: 400px;
+            width: 100%;
+        }
     }
 
     .code {
@@ -266,6 +281,7 @@ h2 {
 
 .more {
     display: block;
+    font-size: 0.8em;
     text-align: right;
 
     &:hover { text-decoration: none; }
@@ -306,5 +322,29 @@ h2 {
         margin-right: 2em;
         width: 46%;
         vertical-align: top;
+    }
+}
+
+.racing {
+    max-width: 1024px;
+    width: 100%;
+
+    h2 { border-bottom: solid 1px black; }
+
+    .gallery {
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 56.25%;
+        margin-bottom: 1em;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     }
 }
