@@ -96,3 +96,25 @@ angular.module('loganDirectives', [])
             }
         }
     })
+
+.directive('loganImage',
+    function() {
+        return {
+            replace: true,
+            restrict: 'E',
+            scope: {
+                'src': '@'
+            },
+            templateUrl: '/static/templates/image.html',
+            controller: function($scope) {
+                $scope.loaded = false
+                var img = new Image()
+                // img.src = $scope.src
+                setTimeout(function() { img.src=$scope.src }, 2000)
+                img.onload = function() {
+                    $scope.loaded = true
+                    $scope.$apply()
+                }
+            }
+        }
+    })
