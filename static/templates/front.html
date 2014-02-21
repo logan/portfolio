@@ -17,7 +17,7 @@
     </p>
     <div class="projects">
       <a ng-repeat="project in projects" class="project" href="/code#{{project.title}}">
-        <img class="icon" src="/static/img/{{project.title}}.svg">
+        <img class="icon" ng-src="/static/img/{{project.title}}.svg">
       </a>
     </div>
     <a class="more" href="/code">more ></a>

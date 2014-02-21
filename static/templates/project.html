@@ -3,7 +3,7 @@
   <h2>{{title}}</h2>
   <span class="summary">{{summary}}</span>
   <a class="link" ng-show="src" href="http://{{src}}">{{src}}</a>
-  <img class="icon" src="/static/img/{{icon}}">
+  <img class="icon" ng-src="/static/img/{{icon}}">
   <div class="description" ng-transclude>
   </div>
   <ng-include src="'/static/templates/projects/' + title + '.html'">
