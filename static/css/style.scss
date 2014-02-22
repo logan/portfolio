@@ -237,10 +237,8 @@ h2 {
             }
         }
         @media (min-width: $wide-breakpoint) {
-            width: 23%;
-            &.racing {
-                width: 48%;
-            }
+            width: 31%;
+            &.racing { width: 31%; }
         }
 
         h2 { border-bottom: solid 1px black; }
