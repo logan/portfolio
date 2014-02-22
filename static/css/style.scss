@@ -24,16 +24,6 @@ $sidenav-header-height: 3em;
     transition: $spec;
 }
 
-@media print {
-    * {
-        font-size: 12pt;
-    }
-    body {
-        padding: 1in 1in 1in 1in;
-    }
-    .header, .footer { display: none; }
-}
-
 @import 'resume';
 
 * {
@@ -74,6 +64,7 @@ h1 {
 
 h2 {
     margin-bottom: 1em;
+    border-bottom: 1px solid black;
 }
 
 .header {

@@ -1,11 +1,20 @@
 @media print {
+    body {
+        padding: 1in 1in 1in 1in;
+        width: 6.5in;
+        height: 9in;
+    }
+    .header, .footer { display: none; }
+
     .resume {
         .note { font-size: 9pt; }
     }
 }
 
 .resume {
-    width: 55em;
+    margin: 0 0 0 0;
+    padding: 4% 4% 4% 4%;
+    width: 8.5in;
 
     a { font-weight: normal; }
 
@@ -14,11 +23,20 @@
         margin-bottom: 0;
     }
 
-    h2 { margin-bottom: 1.3em; margin-top: 4em; }
-    h3 { margin-top: 2em; }
+    h2 {
+        margin-bottom: 0.2in;
+        margin-top: 0.6in;
+        border-bottom: none;
+    }
+    h3 {
+        font-size: inherit;
+        margin-top: 0.3in;
+        letter-spacing: 0.1em;
+        border-bottom: solid 1px black;
+    }
 
     .note {
-        font-size: 0.9em;
+        font-size: 9pt;
         font-style: italic;
         font-weight: normal !important;
         text-transform: none;
@@ -30,12 +48,13 @@
     }
 
     .col1 {
-        margin-right: 4em;
-        width: 16.5em;
+        margin-right: 0.5in;
+        width: 2.5in;
         a { font-weight: bold; }
+        p { font-size: 9pt; }
     }
 
     .col2 {
-        width: 32em;
+        width: 5in;
     }
 }
