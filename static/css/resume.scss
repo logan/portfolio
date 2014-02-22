@@ -32,7 +32,6 @@
         font-size: inherit;
         margin-top: 0.3in;
         letter-spacing: 0.1em;
-        border-bottom: solid 1px black;
     }
 
     .note {
@@ -56,5 +55,8 @@
 
     .col2 {
         width: 5in;
+        h3 {
+            border-bottom: solid 1px black;
+        }
     }
 }
