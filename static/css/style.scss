@@ -83,6 +83,7 @@ h2 {
     &.fixed { position: fixed; }
 
     img {
+        display: none;
         width: 0.75*$topnav-height;
         height: 0.75*$topnav-height;
         margin: 0.125*$topnav-height 0.125*$topnav-height 0.125*$topnav-height 0.125*$topnav-height;
@@ -99,14 +100,13 @@ h2 {
         position: absolute;
         top: 0;
         left: 0;
-        height: $topnav-height;
+        height: $topnav-height - 2;
+        width: 35%;
         z-index: 2;
 
         background: white;
         border-bottom: solid 1px black;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-        //font-family: $hdr-font-family;
+        padding: 2px 0.5em 0 0.5em;
         font-family: 'Lato', $hdr-font-family;
         font-size: 16px;
         letter-spacing: 0.2em;
@@ -121,7 +121,7 @@ h2 {
 
     @media (min-width: $sidenav-breakpoint) {
         position: absolute !important;
-        left: 2%;
+        left: 4%;
 
         border: none;
         font-size: 1.5em;
@@ -133,7 +133,8 @@ h2 {
 .nav {
     position: absolute;
     top: 0;
-    left: $topnav-height;
+    //left: $topnav-height;
+    left: 0;
     right: 0;
     height: $topnav-height;
     z-index: 1;
@@ -146,11 +147,12 @@ h2 {
 
     .item {
         display: inline-block;
+        float: left;
         font-family: $hdr-font-family;
         font-size: 12px;
         text-align: center;
         text-transform: uppercase;
-        width: 32%;
+        width: 33.333%;
         line-height: $topnav-height;
         vertical-align: bottom;
 
@@ -177,22 +179,22 @@ h2 {
 
     @media (min-width: $topnav-breakpoint) {
         background-image: none;
+        left: 35%;
         padding-left: 0;
-        .item {
-            width: 8em;
-        }
+        width: 65%
     }
 
     @media (min-width: $sidenav-breakpoint) {
-        top: $sidenav-header-height + 1.2em;
-        left: 2%;
+        top: $sidenav-header-height + 2em;
+        left: 4%;
         border-bottom: none;
-        width: 28%;
+        width: 26%;
 
         &.fixed { top: 0; }
 
         .item {
             display: block;
+            float: none;
             font-size: 1.125em;
             letter-spacing: 0.1em;
             padding-left: 10%;
@@ -215,14 +217,14 @@ h2 {
     @media (min-width: $sidenav-breakpoint) {
         margin-top: $sidenav-header-height;
         padding-top: 0.5em;
-        margin-left: 30%;
+        margin-left: 32%;
         width: 67%;
     }
 
     @media (min-width: $wide-breakpoint) {
-        margin-left: 15%;
+        margin-left: 17.5%;
         margin-right: 2%;
-        width: 83%;
+        width: 82.5%;
     }
 }
 
@@ -253,15 +255,13 @@ h2 {
     .feature {
         display: inline-block;
         float: left;
-        margin-left: 1%;
-        margin-right: 1%;
+        margin-right: 2%;
         margin-bottom: 2em;
         vertical-align: top;
         width: 100%;
 
         @media (min-width: $sidenav-breakpoint) {
-            margin-left: 2%;
-            margin-right: 2%;
+            margin-right: 4%;
             width: 46%;
         }
 
